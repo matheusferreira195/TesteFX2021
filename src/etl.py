@@ -10,10 +10,11 @@ from config import Config
 config = Config()
 
 def create_spark_session():
-
+    
     spark = SparkSession.builder \
         .master("local[*]") \
         .appName("b2w") \
+        .config("spark.driver.host", "localhost") \
         .getOrCreate()
     
     return spark
